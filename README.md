@@ -1,8 +1,37 @@
 # AI Incident Intelligence
 
-> An event-driven AI incident-response system on AWS that detects Lambda failures, retrieves operational evidence, uses Amazon Bedrock to generate structured root-cause analysis and remediation guidance, and persists the complete incident record in DynamoDB — all provisioned with Terraform and least-privilege IAM.
+> An event-driven AWS incident-response system that detects application failures, retrieves operational evidence, performs AI-assisted root-cause analysis using Amazon Bedrock, and persists structured incident records—demonstrating cloud architecture, serverless engineering, generative AI integration, and infrastructure automation with Terraform and least-privilege IAM.
 
-## Overview
+## Architecture
+
+![AI Incident Intelligence Architecture](docs/assets/AI_Incident_Intelligence_Architecture.png)
+
+## What This Project Demonstrates
+
+**Cloud & Infrastructure:**
+- AWS Lambda, CloudWatch, EventBridge, DynamoDB, Bedrock
+- Event-driven architecture
+- Serverless engineering
+- Infrastructure as Code (Terraform)
+- Least-privilege IAM security
+
+**AI Operations:**
+- Generative AI integration (Amazon Nova Pro)
+- Evidence-grounded prompting
+- Defensive AI response parsing
+- AI failure isolation
+- Structured analysis output handling
+
+**Reliability & Observability:**
+- Failure detection and alerting
+- Observability and log evidence collection
+- Reliability design (AI outside critical path)
+- Controlled failure testing
+- Root-cause-first troubleshooting
+
+---
+
+## How It Works
 
 AI Incident Intelligence is a cloud engineering and AI operations project that demonstrates how generative AI can be integrated into a real incident-response workflow.
 
@@ -40,7 +69,7 @@ The project combines:
 - incident-response engineering
 ---
 
-## Architecture
+## System Architecture
 
 The system is designed as an event-driven pipeline where each AWS service has a specific operational responsibility.
 
@@ -357,6 +386,22 @@ No changes. Your infrastructure matches the configuration.
 
 This provided final confirmation that the environment had reached the intended Infrastructure as Code state with no outstanding drift.
 
+---
+
+## Documentation
+
+Complete project documentation is available in the `/docs` directory:
+
+- **[architecture.md](docs/architecture.md)** — Detailed component responsibilities, data flows, and design patterns
+- **[decisions.md](docs/decisions.md)** — Engineering decisions and their rationale
+- **[journal.md](docs/journal.md)** — Build journal, iteration notes, and lessons learned
+- **[runbook.md](docs/runbook.md)** — Operational procedures, deployment workflow, and troubleshooting
+- **[troubleshooting.md](docs/troubleshooting.md)** — Common issues, debugging approaches, and resolution strategies
+
+Validation evidence including CloudWatch logs, incident records, and Terraform state verification is available in the `/evidence` directory.
+
+---
+
 ## Technology Stack
 
 | Area | Technology |
@@ -375,25 +420,29 @@ This provided final confirmation that the environment had reached the intended I
 
 ## Skills Demonstrated
 
-This project demonstrates experience across both cloud infrastructure and AI operations, including:
+**Core Technologies:**
+AWS Lambda | Amazon CloudWatch | Amazon EventBridge | Amazon Bedrock | Amazon Nova Pro | Amazon DynamoDB | Terraform | IAM | Python | Git | GitHub
+
+**Engineering Competencies:**
 
 - AWS serverless architecture
 - Terraform Infrastructure as Code
-- event-driven system design
-- CloudWatch monitoring and alerting
-- EventBridge automation
+- Event-driven system design
+- CloudWatch observability and alerting
+- EventBridge event routing
 - Python Lambda development
-- Amazon Bedrock integration
-- evidence-grounded AI prompting
-- structured AI output handling
-- root-cause analysis workflows
-- DynamoDB persistence
-- least-privilege IAM
-- failure isolation
-- deployment blast-radius review
-- controlled incident testing
-- troubleshooting and validation
-- infrastructure drift verification
+- Amazon Bedrock / generative AI integration
+- Evidence-grounded AI prompting
+- Defensive AI response parsing
+- Root-cause analysis workflows
+- DynamoDB persistence and querying
+- Least-privilege IAM security
+- Failure isolation and reliability design
+- Controlled failure injection testing
+- Deployment blast-radius review
+- Troubleshooting and validation
+- Infrastructure drift verification
+- End-to-end system testing
 
 ## Repository Structure
 
@@ -443,6 +492,23 @@ Infrastructure Automation
 ```
 
 The result is an event-driven AI incident-response system on AWS that detects Lambda failures, retrieves operational evidence, uses Amazon Bedrock to generate structured root-cause analysis and remediation guidance, and persists the complete incident record in DynamoDB — all provisioned with Terraform and least-privilege IAM.
+
+---
+
+## Key Engineering Decisions
+
+- **Event-driven routing** instead of polling — reduces cost and latency
+- **Evidence before AI** — grounds analysis in real operational data
+- **AI outside critical path** — failure isolation ensures incident persistence
+- **DynamoDB for persistence** — serverless, durable incident history
+- **Controlled failure injection** — safe, repeatable testing
+- **Least-privilege IAM** — security scoped to required actions only
+- **Terraform plan review** — blast-radius visibility before deployment
+- **Timeout tuning** — 30-second limit matches workload requirements
+- **Defensive parsing** — validates AI response before persistence
+- **Zero-drift verification** — confirms infrastructure matches code
+
+---
 
 ## Author
 
